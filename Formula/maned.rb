@@ -2,7 +2,7 @@
 class Maned < Formula
   desc     "Integer-only dataflow language for linear algebra and small ML workloads"
   homepage "https://fabianodicheti.github.io/maned/"
-  version  "0.1.0"
+  version  "0.1.1"
   # Free to use for any purpose including commercial, but not redistributable
   # and not open source, so no SPDX identifier describes it.
   license :cannot_represent
@@ -10,24 +10,24 @@ class Maned < Formula
   on_macos do
     # One universal tarball covers both Apple Silicon and Intel, so there is no
     # on_arm/on_intel split here.
-    url "https://github.com/FabianoDicheti/maned/releases/download/v0.1.0/maned-0.1.0-universal-apple-darwin.tar.gz"
-    sha256 "0fd6ffac8e5c3c0b3dd6cfe61e2f015ef86f1080b874ab7217c0803d55889466"
+    url "https://github.com/FabianoDicheti/maned/releases/download/v0.1.1/maned-0.1.1-universal-apple-darwin.tar.gz"
+    sha256 "065d7eb0430362717a7816dd7cacfb10fcea6989329581830bff154365ff30a3"
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/FabianoDicheti/maned/releases/download/v0.1.0/maned-0.1.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "5003a547761724e111bffc17bdf4d5fbd4d92493a0b34606ca6ae7ca3ec11542"
+      url "https://github.com/FabianoDicheti/maned/releases/download/v0.1.1/maned-0.1.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "41bd4854e30f8cb51355590ce65c23237beba4e1bc12d35804f1a133ab95cd18"
     end
     on_arm do
-      url "https://github.com/FabianoDicheti/maned/releases/download/v0.1.0/maned-0.1.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "23ce2f5a5b63b4494970bc18c8744437cc9f976883bc13de7ff202001989af2e"
+      url "https://github.com/FabianoDicheti/maned/releases/download/v0.1.1/maned-0.1.1-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "8b9138ab9ccf9027d1c7fd5cf025d9d8d8cbfa0ca918969c041ded0ba5c74bc0"
     end
   end
 
   def install
     # Homebrew strips the single top-level directory when staging, so the
-    # tarball's maned-0.1.0-<target>/bin/ arrives here as bin/.
+    # tarball's maned-0.1.1-<target>/bin/ arrives here as bin/.
     bin.install "bin/maned-run", "bin/maned-serve", "bin/maned-lint"
     doc.install "README.md", "LICENSE", "THIRD_PARTY_NOTICES.md"
   end
