@@ -2,7 +2,7 @@
 class Maned < Formula
   desc     "Integer-only dataflow language for linear algebra and small ML workloads"
   homepage "https://fabianodicheti.github.io/maned/"
-  version  "0.3.0"
+  version  "0.4.0"
   # Free to use for any purpose including commercial, but not redistributable
   # and not open source, so no SPDX identifier describes it.
   license :cannot_represent
@@ -10,24 +10,24 @@ class Maned < Formula
   on_macos do
     # One universal tarball covers both Apple Silicon and Intel, so there is no
     # on_arm/on_intel split here.
-    url "https://github.com/FabianoDicheti/maned/releases/download/v0.3.0/maned-0.3.0-universal-apple-darwin.tar.gz"
-    sha256 "4fef206ae5449e87dc40047514339040b87dfce6049e3ab442496b1f57513761"
+    url "https://github.com/FabianoDicheti/maned/releases/download/v0.4.0/maned-0.4.0-universal-apple-darwin.tar.gz"
+    sha256 "baad5b8b8306b6093673dbefa4295c239fd15a5368c626fc9e54f82774980f7e"
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/FabianoDicheti/maned/releases/download/v0.3.0/maned-0.3.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "434ca9fc23090c81d12d1b0f7622a6a3ad95c0a722ad60205b50d4c2989f7e54"
+      url "https://github.com/FabianoDicheti/maned/releases/download/v0.4.0/maned-0.4.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "d8037b3252736600554514865695f1f4d903b941716329ab23b35448cb745ad0"
     end
     on_arm do
-      url "https://github.com/FabianoDicheti/maned/releases/download/v0.3.0/maned-0.3.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "4796ada9c33f34fdf9f1fe6ed14973947187b6a6d708e060cb5ba850b53de8cb"
+      url "https://github.com/FabianoDicheti/maned/releases/download/v0.4.0/maned-0.4.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "a60ab3c60a309ee5c30469ec9be489d73a3cce49fb7473bc0c11777bb92440ad"
     end
   end
 
   def install
     # Homebrew strips the single top-level directory when staging, so the
-    # tarball's maned-0.3.0-<target>/bin/ arrives here as bin/.
+    # tarball's maned-0.4.0-<target>/bin/ arrives here as bin/.
     bin.install "bin/maned-run", "bin/maned-serve", "bin/maned-lint"
     # The hosted Bark worker (host = "local") and its console alias.
     bin.install "bin/bark-vm" if File.exist?("bin/bark-vm")
